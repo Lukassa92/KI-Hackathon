@@ -1,0 +1,22 @@
+.container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+}
+
+.widgets-section {
+  flex: 1; /* Takes up remaining space */
+  overflow-y: auto; /* Scrollable if content overflows */
+}
+
+.chatbot-section {
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Scrollable if content overflows */
+  height: calc(100%);
+}

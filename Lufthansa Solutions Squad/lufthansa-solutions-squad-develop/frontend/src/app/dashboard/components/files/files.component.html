@@ -1,0 +1,10 @@
+<app-widget>
+  <h3>Recently Downloaded Files</h3>
+  <ul>
+    <li *ngFor="let file of files">
+      <span>{{ file.name }}</span>
+      <span>{{ file.size }} MB</span>
+    </li>
+  </ul>
+</app-widget>
+

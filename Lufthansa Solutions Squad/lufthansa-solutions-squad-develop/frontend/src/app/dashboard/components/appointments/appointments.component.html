@@ -1,0 +1,10 @@
+<app-widget>
+  <h3>Upcoming Appointments</h3>
+  <ul>
+    <li *ngFor="let appointment of dummyAppointments">
+      <span>{{ appointment.title }} - {{ appointment.date | date: 'dd.MM.YYYY HH:mm' }} Uhr</span>
+      <button class="calendar-button" (click)="addToCalendar(appointment)">Add to Calendar</button>
+    </li>
+  </ul>
+</app-widget>
+

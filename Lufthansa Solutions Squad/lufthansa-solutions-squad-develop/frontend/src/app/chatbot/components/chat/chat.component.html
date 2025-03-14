@@ -1,0 +1,36 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <img ngSrc="assets/wolfi.png" height="64" width="64">
+    <h3>Wolfi</h3>
+  </div>
+
+  <div class="chat-messages" #scrollContainer (scroll)="onScroll()">
+    <div *ngFor="let message of messages"
+         class="message-bubble"
+         [class.user-message]="message.isUser"
+         [class.bot-message]="!message.isUser"
+         [innerHTML]="message.content | convertLinks">
+      <div class="timestamp">{{ message.timestamp | date:'HH:mm' }} Uhr</div>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-dots loading-bubble">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    <p>Something went wrong. Please try again.</p>
+    <button (click)="retry()">Retry</button>
+  </div>
+
+  <div class="input-area">
+    <input type="text"
+           [(ngModel)]="newMessage"
+           (keyup.enter)="sendMessage()"
+           placeholder="Wie kann ich helfen?">
+    <button (click)="sendMessage()">Senden</button>
+  </div>
+</div>
+
